@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     float speed = 5.0f;
 
+
+
     void Start()
     {
         
@@ -14,5 +16,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.forward * Time.deltaTime * speed;
+        if (Input.GetKey("a"))
+        {
+            transform.Rotate(new Vector3(0, -1, 0));
+        }
+        else if (Input.GetKey("d"))
+        {
+            transform.Rotate(new Vector3(0, 1, 0));
+        }
     }
 }
