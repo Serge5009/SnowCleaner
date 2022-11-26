@@ -28,18 +28,18 @@ public class Player : MonoBehaviour
             transform.Rotate(new Vector3(0, 1 * turnSpeed * Time.deltaTime, 0));
         }
 
-        if (Input.GetKey("a") && Input.GetKey("d"))
+        if (Input.GetKey("a") && Input.GetKey("d")) //  Deceleration input
         {
             speed -= acceleration / 2 * Time.deltaTime;
         }
-        else
+        else                                        //  if not stopping - accelerate
         {
             speed += acceleration * Time.deltaTime;
         }
 
-        if (speed > maxSpeed)
+        if (speed > maxSpeed)   //  Speed limits
             speed = maxSpeed;
-        if (speed < maxSpeed / -2)
+        if (speed < maxSpeed / -2)  //  Backwards speed limit is half of the normal one
             speed = maxSpeed / -2;
 
         transform.position += transform.forward * Time.deltaTime * speed;
